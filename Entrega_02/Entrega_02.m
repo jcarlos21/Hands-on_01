@@ -22,7 +22,7 @@ for iFc = 1:length(vtFc)
         dSensitivity = -104;                                       % Sensibilidade do receptor (http://www.comlab.hut.fi/opetus/260/1v153.pdf)
         dHMob = 5;                                                 % Altura do receptor
         dHBs = 30;                                                 % Altura do transmissor
-        dAhm = 3.2*(log10(11.75*dHMob)).^2 - 4.97;                 % Modelo Okumura-Hata: Cidade grande e fc  >= 400MHz
+        dAhm = 3.2*(log10(11.75*dHMob)).^2 - 4.97;                 % Modelo COST 231 Hata: Áreas metropolitanas e fc  >= 900MHz
         %
         % Vetor com posições das BSs (grid Hexagonal com 7 células, uma célula central e uma camada de células ao redor)
         vtBs = [ 0 ];
@@ -52,8 +52,8 @@ for iFc = 1:length(vtFc)
             mtDistEachBs = abs(mtPosEachBS);                       % Distância entre cada ponto de medição e a sua ERB
             mtDistEachBs(mtDistEachBs < dRMin) = dRMin;            % Implementação do raio de segurança
             
-            % Okumura-Hata (cidade urbana) - dB
-            mtPldB = 69.55 + 26.16*log10(dFc) + (44.9 - 6.55*log10(dHBs))*log10(mtDistEachBs/1e3) - 13.82*log10(dHBs) - dAhm; % Perda de percurso
+            % COST 231 Hata (para áreas metropolitanas + 3dBm) - dB
+            mtPldB = 46.3 + 33.9*log10(dFc) + (44.9 - 6.55*log10(dHBs))*log10(mtDistEachBs/1e3) - 13.82*log10(dHBs) - dAhm + 3; % Perda de percurso
             mtPowerEachBSdBm = dPtdBm - mtPldB;                    % Potências recebidas em cada ponto de medição
             
             % Cálulo da maior potência em cada ponto de medição
