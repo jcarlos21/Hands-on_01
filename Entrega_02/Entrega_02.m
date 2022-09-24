@@ -1,5 +1,8 @@
 clear; clc; close all;
 
+disp('Modelo COST 231 Hata: Áreas metropolitanas');
+disp(' ')
+
 vtFc = [800 900 1800 1900 2100];                                   % Frequências da portadora
 
 for iFc = 1:length(vtFc)
@@ -73,5 +76,5 @@ for iFc = 1:length(vtFc)
     disp(['Frequência da portadora = ' num2str(dFc) ' MHz']);
     disp(['Taxa de outage = ' num2str(maxOutRate) ' %']);
     disp(['Raio celular aproximado = ' num2str(dRMax)])
-    disp(['----------------------------------'])
+    disp('----------------------------------');
 end

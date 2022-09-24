@@ -1,5 +1,8 @@
 clear; clc; close all;
 
+disp('Modelo Okumura-Hata: Cidade grande');
+disp(' ')
+
 vtFc = [800 900 1800 1900 2100];                                   % Frequências da portadora
 
 for iFc = 1:length(vtFc)
