@@ -1,5 +1,5 @@
 clear; clc; close all;
-cont = 0;                                                          % Contador de ocorrências
+
 vtFc = [800 900 1800 1900 2100];                                   % Frequências da portadora
 
 for iFc = 1:length(vtFc)
@@ -68,8 +68,6 @@ for iFc = 1:length(vtFc)
             dRMax = dR;
             break
         end
-%         cont = cont + 1;
-
     end
 
     disp(['Frequência da portadora = ' num2str(dFc) ' MHz']);
@@ -77,5 +75,3 @@ for iFc = 1:length(vtFc)
     disp(['Raio celular aproximado = ' num2str(dRMax)])
     disp(['----------------------------------'])
 end
-
-% disp(['Ao todo foram ' num2str(cont) ' ocorrências.'])
